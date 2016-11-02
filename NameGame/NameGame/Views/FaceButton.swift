@@ -5,50 +5,47 @@
 //  Copyright © 2016 WillowTree Apps. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-public class FaceButton: UIButton {
+final class FaceButton: UIButton {
 
     var id: Int = 0
     var tintView: UIView?
 
-    func loadImageFromURL(url url:String) {
-        guard let imageURL = NSURL(string: url)
-            else {
-                preconditionFailure("Invalid image link")
-            }
-        NSURLSession.sharedSession().dataTaskWithURL(imageURL, completionHandler: { (data, response, error) -> Void in
+    func loadImageFromURL(url: String) {
+        guard let imageURL = URL(string: url) else {
+            preconditionFailure("Invalid image link")
+        }
+        URLSession.shared.dataTask(with: imageURL, completionHandler: { (data, response, error) -> Void in
             let image = UIImage(data: data!)
-            dispatch_async(dispatch_get_main_queue()) { () -> Void in
-                self.setBackgroundImage(image, forState: .Normal)
+            DispatchQueue.main.async { () -> Void in
+                self.setBackgroundImage(image, for: UIControlState())
             }
         }).resume()
     }
 
-    public override func layoutSubviews() {
+    override func layoutSubviews() {
         if let tintView = self.tintView {
             tintView.frame = self.bounds
         }
-
         super.layoutSubviews()
     }
 
     func animateDisplayName() {
-        self.setTitleColor(.whiteColor(), forState: .Normal)
-        UIView.animateWithDuration(0.5, animations: {
+        setTitleColor(.white, for: UIControlState())
+        UIView.animate(withDuration: 0.5, animations: {
             self.titleLabel?.alpha = 1.0
         })
     }
 
     func hideName() {
-        setTitleColor(.clearColor(), forState: .Normal)
-        self.titleLabel!.alpha = 0.0
+        setTitleColor(.clear, for: UIControlState())
+        titleLabel!.alpha = 0.0
     }
 
 
 
-    func addTint(color: UIColor) {
+    func addTint(_ color: UIColor) {
         if self.tintView == nil {
             let tintView = UIView(frame: self.bounds)
             tintView.alpha = 0.0
@@ -58,7 +55,7 @@ public class FaceButton: UIButton {
             self.tintView = tintView
         }
 
-        UIView.animateWithDuration(0.5, animations: {
+        UIView.animate(withDuration: 0.5, animations: {
             self.tintView!.alpha = 0.3
         })
     }

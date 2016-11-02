@@ -7,44 +7,41 @@
 
 import UIKit
 
-class NameGameViewController: UIViewController {
+final class NameGameViewController: UIViewController {
 
-    @IBOutlet weak var outerStackView: UIStackView!
-    @IBOutlet weak var innerStackView1: UIStackView!
-    @IBOutlet weak var innerStackView2: UIStackView!
-    @IBOutlet weak var questionLabel: UILabel!
-    @IBOutlet var imageButtons: [FaceButton]!
+    @IBOutlet private weak var outerStackView: UIStackView!
+    @IBOutlet private weak var innerStackView1: UIStackView!
+    @IBOutlet private weak var innerStackView2: UIStackView!
+    @IBOutlet private weak var questionLabel: UILabel!
+    @IBOutlet private var imageButtons: [FaceButton]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
 
-        let orientation: UIDeviceOrientation = self.view.frame.size.height > self.view.frame.size.width ? .Portrait : .LandscapeLeft
+        let orientation: UIDeviceOrientation = view.frame.size.height > view.frame.size.width ? .portrait : .landscapeLeft
         configureSubviews(orientation)
     }
 
     // Load JSON data from API
-    func loadData() {
-
+    private func loadData() {
+        // TODO:
     }
 
-    @IBAction func faceTapped(button: FaceButton) {
-
+    @IBAction func faceTapped(_ button: FaceButton) {
+        // TODO:
     }
 
-    func configureSubviews(orientation: UIDeviceOrientation) {
+    private func configureSubviews(_ orientation: UIDeviceOrientation) {
         if orientation.isLandscape {
-            outerStackView.axis = .Vertical
-            innerStackView1.axis = .Horizontal
-            innerStackView2.axis = .Horizontal
+            outerStackView.axis = .vertical
+            innerStackView1.axis = .horizontal
+            innerStackView2.axis = .horizontal
         } else {
-            outerStackView.axis = .Horizontal
-            innerStackView1.axis = .Vertical
-            innerStackView2.axis = .Vertical
+            outerStackView.axis = .horizontal
+            innerStackView1.axis = .vertical
+            innerStackView2.axis = .vertical
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
+    
 }
