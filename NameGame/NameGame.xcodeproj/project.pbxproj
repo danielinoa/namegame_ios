@@ -8,24 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		01228FDE1DCAAFDE00B1C174 /* Array+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01228FDD1DCAAFDE00B1C174 /* Array+Random.swift */; };
+		01228FE11DCAE3C400B1C174 /* GameModesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01228FE01DCAE3C400B1C174 /* GameModesViewController.swift */; };
+		01228FE31DCAE3D700B1C174 /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01228FE21DCAE3D700B1C174 /* GameMode.swift */; };
+		01228FE71DCAE6E900B1C174 /* NameGameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01228FE61DCAE6E900B1C174 /* NameGameView.xib */; };
 		014F056C1DCAA78800B94AB0 /* Guesser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014F056B1DCAA78800B94AB0 /* Guesser.swift */; };
 		018436391DCA98C7001B8ACE /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018436381DCA98C7001B8ACE /* Person.swift */; };
 		229C6EFF1CA186870064CA99 /* FaceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229C6EFE1CA186870064CA99 /* FaceButton.swift */; };
 		229C6F011CA1868E0064CA99 /* NameGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229C6F001CA1868E0064CA99 /* NameGameViewController.swift */; };
 		EC6A1AB71C8F6E5A0071F529 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A1AB61C8F6E5A0071F529 /* AppDelegate.swift */; };
-		EC6A1ABC1C8F6E5A0071F529 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC6A1ABA1C8F6E5A0071F529 /* Main.storyboard */; };
 		EC6A1ABE1C8F6E5A0071F529 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC6A1ABD1C8F6E5A0071F529 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		01228FDD1DCAAFDE00B1C174 /* Array+Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Random.swift"; sourceTree = "<group>"; };
+		01228FE01DCAE3C400B1C174 /* GameModesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModesViewController.swift; sourceTree = "<group>"; };
+		01228FE21DCAE3D700B1C174 /* GameMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
+		01228FE61DCAE6E900B1C174 /* NameGameView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NameGameView.xib; sourceTree = "<group>"; };
 		014F056B1DCAA78800B94AB0 /* Guesser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Guesser.swift; sourceTree = "<group>"; };
 		018436381DCA98C7001B8ACE /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		229C6EFE1CA186870064CA99 /* FaceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FaceButton.swift; path = Views/FaceButton.swift; sourceTree = "<group>"; };
 		229C6F001CA1868E0064CA99 /* NameGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NameGameViewController.swift; path = ViewControllers/NameGameViewController.swift; sourceTree = "<group>"; };
 		EC6A1AB31C8F6E5A0071F529 /* NameGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NameGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC6A1AB61C8F6E5A0071F529 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EC6A1ABB1C8F6E5A0071F529 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EC6A1ABD1C8F6E5A0071F529 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC6A1AC21C8F6E5A0071F529 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -54,6 +58,7 @@
 			children = (
 				018436381DCA98C7001B8ACE /* Person.swift */,
 				014F056B1DCAA78800B94AB0 /* Guesser.swift */,
+				01228FE21DCAE3D700B1C174 /* GameMode.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -62,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				229C6F001CA1868E0064CA99 /* NameGameViewController.swift */,
+				01228FE01DCAE3C400B1C174 /* GameModesViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -70,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				229C6EFE1CA186870064CA99 /* FaceButton.swift */,
+				01228FE61DCAE6E900B1C174 /* NameGameView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -98,7 +105,6 @@
 				229C6EFC1CA186390064CA99 /* ViewControllers */,
 				229C6EFB1CA186340064CA99 /* Model */,
 				01228FDF1DCAD45300B1C174 /* Extensions */,
-				EC6A1ABA1C8F6E5A0071F529 /* Main.storyboard */,
 				EC6A1ABD1C8F6E5A0071F529 /* Assets.xcassets */,
 				EC6A1AC21C8F6E5A0071F529 /* Info.plist */,
 			);
@@ -166,7 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC6A1ABE1C8F6E5A0071F529 /* Assets.xcassets in Resources */,
-				EC6A1ABC1C8F6E5A0071F529 /* Main.storyboard in Resources */,
+				01228FE71DCAE6E900B1C174 /* NameGameView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,7 +183,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01228FE31DCAE3D700B1C174 /* GameMode.swift in Sources */,
 				EC6A1AB71C8F6E5A0071F529 /* AppDelegate.swift in Sources */,
+				01228FE11DCAE3C400B1C174 /* GameModesViewController.swift in Sources */,
 				014F056C1DCAA78800B94AB0 /* Guesser.swift in Sources */,
 				01228FDE1DCAAFDE00B1C174 /* Array+Random.swift in Sources */,
 				229C6F011CA1868E0064CA99 /* NameGameViewController.swift in Sources */,
@@ -187,17 +195,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		EC6A1ABA1C8F6E5A0071F529 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EC6A1ABB1C8F6E5A0071F529 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		EC6A1AC31C8F6E5A0071F529 /* Debug */ = {

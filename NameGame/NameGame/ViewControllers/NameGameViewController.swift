@@ -86,8 +86,4 @@ final class NameGameViewController: UIViewController {
         }
     }
     
-    @IBAction func resetAction(_ sender: Any) {
-        configureGame(with: people)
-    }
-    
 }
