@@ -62,7 +62,7 @@ final class NameGameViewController: UIViewController {
         self.guesser = guesser
         
         // Configure question label with the Person to guess
-        questionLabel.text = "Who is \(guesser.chosenElement.name)"
+        questionLabel.text = "Who is \(guesser.chosenElement.name)?"
     }
     
     // MARK: - Actions
