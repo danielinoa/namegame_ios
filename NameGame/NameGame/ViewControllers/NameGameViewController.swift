@@ -17,24 +17,23 @@ final class NameGameViewController: UIViewController {
     
     private var guesser: Guesser<Person>?
     
-    private var people: [Person] = []
+    let people: [Person]
+    
+    // MARK: - Lifecycle
+    
+    init(people: [Person]) {
+        self.people = people
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) { fatalError("\(#function) not implemented.") }
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) { fatalError("\(#function) not implemented.") }
     
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadData()
-    }
-
-    // MARK: - Data
-    
-    private func loadData() {
-        Person.fetchPeople { people in
-            DispatchQueue.main.async {
-                self.people = people
-                self.configureGame(with: people)
-            }
-        }
+        configureGame(with: people)
     }
     
     // MARK: -
