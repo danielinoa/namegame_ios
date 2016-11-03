@@ -55,9 +55,7 @@ final class NameGameViewController: UIViewController {
         // Configure image buttons with corresponding Person
         imageButtons.enumerated().forEach({
             let person = samplePeople[$0.offset]
-            $0.element.loadImageFromURL(url: person.imageUrl)
-            $0.element.titleLabel?.text = person.name
-            $0.element.setTitle(person.name, for: .normal)
+            $0.element.configure(with: person)
         })
         
         // Configure `Guesser` with sample set
@@ -78,13 +76,13 @@ final class NameGameViewController: UIViewController {
         button.isUserInteractionEnabled = false
         let tappedPerson = guesser.sample[tappedButtonIndex]
         if guesser.isChosenElement(element: tappedPerson) {
-            button.addTint(.green)
+            button.setTint(color: .green)
             // reconfigure game after correct guess
             DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
                 self.configureGame(with: self.people)
             })
         } else {
-            button.addTint(.red)
+            button.setTint(color: .red)
         }
     }
     

@@ -8,9 +8,35 @@
 import UIKit
 
 final class FaceButton: UIButton {
-
-    var id: Int = 0
-    weak var tintView: UIView?
+    
+    // MARK: - Lifecycle
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configure()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        configure()
+    }
+    
+    private func configure() {
+        tintView.frame = bounds
+        tintView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        insertSubview(tintView, at: 0)
+    }
+    
+    func configure(with person: Person) {
+        loadImageFromURL(url: person.imageUrl)
+        setTitle(person.name, for: .normal)
+    }
+    
+    // MARK: - Image
 
     func loadImageFromURL(url: String) {
         guard let imageURL = URL(string: url) else {
@@ -19,51 +45,42 @@ final class FaceButton: UIButton {
         URLSession.shared.dataTask(with: imageURL, completionHandler: { (data, response, error) -> Void in
             let image = UIImage(data: data!)
             DispatchQueue.main.async { () -> Void in
-                self.setBackgroundImage(image, for: UIControlState())
+                self.setBackgroundImage(image, for: .normal)
             }
         }).resume()
     }
 
-    override func layoutSubviews() {
-        if let tintView = self.tintView {
-            tintView.frame = self.bounds
-        }
-        super.layoutSubviews()
-    }
-
+    // MARK: - Label
+    
     func animateDisplayName() {
-        setTitleColor(.white, for: UIControlState())
-        UIView.animate(withDuration: 0.5, animations: {
+        setTitleColor(.white, for: .normal)
+        UIView.animate(withDuration: 0.5) {
             self.titleLabel?.alpha = 1.0
-        })
+        }
     }
 
     func hideName() {
-        setTitleColor(.clear, for: UIControlState())
-        titleLabel!.alpha = 0.0
+        setTitleColor(.clear, for: .normal)
+        titleLabel?.alpha = 0.0
     }
+    
+    // MARK: - Tint
 
-
-
-    func addTint(_ color: UIColor) {
-        if self.tintView == nil {
-            let tintView = UIView(frame: self.bounds)
-            tintView.alpha = 0.0
-            tintView.backgroundColor = color
-            self.addSubview(tintView)
-            self.addSubview(self.titleLabel!)
-            self.tintView = tintView
+    private let tintView: UIView = {
+        let view = UIView()
+        view.alpha = 0
+        return view
+    }()
+    
+    func setTint(color: UIColor) {
+        tintView.backgroundColor = color
+        UIView.animate(withDuration: 0.5) {
+            self.tintView.alpha = 0.3
         }
-
-        UIView.animate(withDuration: 0.5, animations: {
-            self.tintView!.alpha = 0.3
-        })
     }
 
     func removeTint() {
-        if let tintView = self.tintView {
-            tintView.removeFromSuperview()
-        }
+        tintView.alpha = 0
     }
 
 }
