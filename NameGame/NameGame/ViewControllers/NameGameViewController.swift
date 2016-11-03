@@ -14,34 +14,82 @@ final class NameGameViewController: UIViewController {
     @IBOutlet private weak var innerStackView2: UIStackView!
     @IBOutlet private weak var questionLabel: UILabel!
     @IBOutlet private var imageButtons: [FaceButton]!
-
+    
+    private var guesser: Guesser<Person>?
+    
+    private var people: [Person] = []
+    
+    // MARK: - View Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
-
-        let orientation: UIDeviceOrientation = view.frame.size.height > view.frame.size.width ? .portrait : .landscapeLeft
-        configureSubviews(orientation)
     }
 
-    // Load JSON data from API
+    // MARK: - Data
+    
     private func loadData() {
-        // TODO:
-    }
-
-    @IBAction func faceTapped(_ button: FaceButton) {
-        // TODO:
-    }
-
-    private func configureSubviews(_ orientation: UIDeviceOrientation) {
-        if orientation.isLandscape {
-            outerStackView.axis = .vertical
-            innerStackView1.axis = .horizontal
-            innerStackView2.axis = .horizontal
-        } else {
-            outerStackView.axis = .horizontal
-            innerStackView1.axis = .vertical
-            innerStackView2.axis = .vertical
+        Person.fetchPeople { people in
+            DispatchQueue.main.async {
+                self.people = people
+                self.configureGame(with: people)
+            }
         }
+    }
+    
+    // MARK: -
+    
+    private func configureGame(with people: [Person]) {
+        
+        // Reset buttons
+        imageButtons.forEach({
+            $0.removeTint()
+            $0.hideName()
+            $0.isUserInteractionEnabled = true
+            $0.titleLabel?.text = ""
+        })
+        
+        // Produce random sample of people
+        let samplePeople = people.random(sampleSize: imageButtons.count)
+        
+        // Configure image buttons with corresponding Person
+        imageButtons.enumerated().forEach({
+            let person = samplePeople[$0.offset]
+            $0.element.loadImageFromURL(url: person.imageUrl)
+            $0.element.titleLabel?.text = person.name
+            $0.element.setTitle(person.name, for: .normal)
+        })
+        
+        // Configure `Guesser` with sample set
+        let guesser = Guesser(sample: samplePeople)
+        self.guesser = guesser
+        
+        // Configure question label with the Person to guess
+        questionLabel.text = "Who is \(guesser.chosenElement.name)"
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func faceTapped(_ button: FaceButton) {
+        guard let tappedButtonIndex = imageButtons.index(of: button), let guesser = guesser else {
+            fatalError()
+        }
+        button.animateDisplayName()
+        button.isUserInteractionEnabled = false
+        let tappedPerson = guesser.sample[tappedButtonIndex]
+        if guesser.isChosenElement(element: tappedPerson) {
+            button.addTint(.green)
+            // reconfigure game after correct guess
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                self.configureGame(with: self.people)
+            })
+        } else {
+            button.addTint(.red)
+        }
+    }
+    
+    @IBAction func resetAction(_ sender: Any) {
+        configureGame(with: people)
     }
     
 }

@@ -10,7 +10,7 @@ import UIKit
 final class FaceButton: UIButton {
 
     var id: Int = 0
-    var tintView: UIView?
+    weak var tintView: UIView?
 
     func loadImageFromURL(url: String) {
         guard let imageURL = URL(string: url) else {
