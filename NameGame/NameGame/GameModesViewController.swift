@@ -13,6 +13,8 @@ final class GameModesViewController: UITableViewController {
     private let modes = GameMode.all
     private var people: [Person] = []
     
+    // MARK: - Lifecycle
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         loadData()
@@ -27,6 +29,15 @@ final class GameModesViewController: UITableViewController {
         super.init(style: style)
         loadData()
     }
+    
+    // MARK: - View Lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "Game Modes"
+    }
+    
+    // MARK: -
     
     private func loadData() {
         Person.fetchPeople { people in
