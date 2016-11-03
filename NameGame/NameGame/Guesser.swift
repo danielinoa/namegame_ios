@@ -19,7 +19,7 @@ struct Guesser<T: Equatable> {
     init(sample: [T]) {
         precondition(!sample.isEmpty)
         self.sample = sample
-        chosenElement = sample.random()
+        chosenElement = sample.random()!
     }
     
     func isChosenElement(element: T) -> Bool {
@@ -29,7 +29,22 @@ struct Guesser<T: Equatable> {
     mutating func configure(sample: [T]) {
         precondition(!sample.isEmpty)
         self.sample = sample
-        chosenElement = sample.random()
+        chosenElement = sample.random()!
+    }
+    
+    // MARK: - Hint
+    
+    private(set) var hintSample: [T] = []
+    
+    mutating func randomHint() -> T? {
+        let hintSample = sample.filter {
+            $0 != chosenElement && !self.hintSample.contains($0)
+        }
+        if let hint = hintSample.random() {
+            self.hintSample.append(hint)
+            return hint
+        }
+        return nil
     }
     
 }

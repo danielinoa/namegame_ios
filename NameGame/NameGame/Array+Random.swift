@@ -7,7 +7,8 @@ extension Array {
      Returns a randon element in the array.
      - Note: The array may not be empty.
      */
-    func random() -> Element {
+    func random() -> Element? {
+        guard !isEmpty else { return nil }
         let randomIndex = Int(arc4random_uniform(UInt32(count)))
         return self[randomIndex]
     }

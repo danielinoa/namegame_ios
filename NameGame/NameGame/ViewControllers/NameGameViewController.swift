@@ -33,6 +33,8 @@ final class NameGameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let hintBarButtonItem = UIBarButtonItem(title: "Hint", style: .plain, target: self, action: #selector(hint))
+        navigationItem.rightBarButtonItem = hintBarButtonItem
         configureGame(with: people)
     }
     
@@ -46,6 +48,7 @@ final class NameGameViewController: UIViewController {
             $0.hideName()
             $0.isUserInteractionEnabled = true
             $0.titleLabel?.text = ""
+            $0.alpha = 1
         })
         
         // Produce random sample of people
@@ -66,6 +69,18 @@ final class NameGameViewController: UIViewController {
     }
     
     // MARK: - Actions
+    
+    @objc private func hint() {
+        guard guesser != nil else { return }
+        let hint = guesser!.randomHint()
+        if let hintIndex = guesser!.sample.index(where: { hint == $0 }) {
+            let button = imageButtons[hintIndex]
+            button.isUserInteractionEnabled = false
+            UIView.animate(withDuration: 0.5) {
+                button.alpha = 0
+            }
+        }
+    }
     
     @IBAction func faceTapped(_ button: FaceButton) {
         guard let tappedButtonIndex = imageButtons.index(of: button), let guesser = guesser else {
