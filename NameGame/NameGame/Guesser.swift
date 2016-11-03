@@ -26,12 +26,6 @@ struct Guesser<T: Equatable> {
         return chosenElement == element
     }
     
-    mutating func configure(sample: [T]) {
-        precondition(!sample.isEmpty)
-        self.sample = sample
-        chosenElement = sample.random()!
-    }
-    
     // MARK: - Hint
     
     private(set) var hintSample: [T] = []
