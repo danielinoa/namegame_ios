@@ -53,6 +53,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		011369E51DCC20C100DFA48A /* Mode Views */ = {
+			isa = PBXGroup;
+			children = (
+				01228FE61DCAE6E900B1C174 /* NormalModeView.xib */,
+				011369DF1DCBF59B00DFA48A /* NormalModeView.swift */,
+				0116A0B11DCBE5A500E5AE4A /* ReverseModeView.xib */,
+				011369E31DCC0D5D00DFA48A /* ReverseModeView.swift */,
+			);
+			name = "Mode Views";
+			sourceTree = "<group>";
+		};
 		01228FDF1DCAD45300B1C174 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -61,7 +72,7 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
-		229C6EFB1CA186340064CA99 /* Model */ = {
+		229C6EFB1CA186340064CA99 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				018436381DCA98C7001B8ACE /* Person.swift */,
@@ -69,7 +80,7 @@
 				01228FE21DCAE3D700B1C174 /* GameMode.swift */,
 				011369E11DCC095600DFA48A /* NameGameView.swift */,
 			);
-			name = Model;
+			name = Models;
 			sourceTree = "<group>";
 		};
 		229C6EFC1CA186390064CA99 /* ViewControllers */ = {
@@ -85,10 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				229C6EFE1CA186870064CA99 /* FaceButton.swift */,
-				01228FE61DCAE6E900B1C174 /* NormalModeView.xib */,
-				011369DF1DCBF59B00DFA48A /* NormalModeView.swift */,
-				0116A0B11DCBE5A500E5AE4A /* ReverseModeView.xib */,
-				011369E31DCC0D5D00DFA48A /* ReverseModeView.swift */,
+				011369E51DCC20C100DFA48A /* Mode Views */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -115,7 +123,7 @@
 				EC6A1AB61C8F6E5A0071F529 /* AppDelegate.swift */,
 				229C6EFD1CA186410064CA99 /* Views */,
 				229C6EFC1CA186390064CA99 /* ViewControllers */,
-				229C6EFB1CA186340064CA99 /* Model */,
+				229C6EFB1CA186340064CA99 /* Models */,
 				01228FDF1DCAD45300B1C174 /* Extensions */,
 				EC6A1ABD1C8F6E5A0071F529 /* Assets.xcassets */,
 				EC6A1AC21C8F6E5A0071F529 /* Info.plist */,
