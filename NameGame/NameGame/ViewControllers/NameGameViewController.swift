@@ -7,6 +7,9 @@
 
 import UIKit
 
+/**
+ Manages name game views and coordinates the game logic.
+ */
 final class NameGameViewController: UIViewController {
     
     private var guesser: Guesser<Person>?
@@ -33,7 +36,9 @@ final class NameGameViewController: UIViewController {
     // MARK: - View Lifecycle
     
     override func loadView() {
-        let nameGameView = UINib(nibName: "\(mode.viewClass)", bundle: nil).instantiate(withOwner: self, options: nil).first as! NameGameView
+        guard let nameGameView = UINib(nibName: "\(mode.viewClass)", bundle: nil).instantiate(withOwner: self, options: nil).first as? NameGameView else {
+            fatalError("Unable to load \(mode.viewClass) nib")
+        }
         nameGameView.buttons.forEach { $0.addTarget(self, action: #selector(tapped(button:)), for: .touchUpInside) }
         view = nameGameView
     }
@@ -62,15 +67,18 @@ final class NameGameViewController: UIViewController {
     // MARK: - Actions
     
     @objc private func hint() {
-        guard guesser != nil else { return }
-        let hint = guesser!.randomHint()
-        if let hintIndex = guesser!.sample.index(where: { hint == $0 }) {
+        guard var guesser = self.guesser else {
+            return
+        }
+        let hint = guesser.randomHint()
+        if let hintIndex = guesser.sample.index(where: { hint == $0 }) {
             let button = nameGameView.buttons[hintIndex]
             button.isUserInteractionEnabled = false
             UIView.animate(withDuration: 0.5) {
                 button.alpha = 0
             }
         }
+        self.guesser = guesser
     }
     
     @objc private func tapped(button: FaceButton) {
@@ -82,9 +90,9 @@ final class NameGameViewController: UIViewController {
         if guesser.isChosenElement(element: tappedPerson) {
             button.setTint(color: .green)
             // reconfigure game after correct guess
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.configureGame(with: self.people)
-            })
+            }
         } else {
             button.setTint(color: .red)
         }

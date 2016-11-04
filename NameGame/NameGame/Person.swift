@@ -20,7 +20,7 @@ struct Person: Equatable, CustomStringConvertible {
         self.imageUrl = imageUrl
     }
     
-    static func fetchPeople(completion: ((_ people: [Person]) -> Void)? = nil) {
+    static func fetchPeople(completion: ((_ people: [Person]?) -> Void)? = nil) {
         let url = URL(string: "http://api.namegame.willowtreemobile.com")!
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let data = data,
@@ -28,6 +28,8 @@ struct Person: Equatable, CustomStringConvertible {
                 let peopleArray = json as? [[String: String]] {
                 let people = peopleArray.flatMap({ Person(dictionary: $0) })
                 completion?(people)
+            } else {
+                completion?(nil)
             }
         }
         task.resume()

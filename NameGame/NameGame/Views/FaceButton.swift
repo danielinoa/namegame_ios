@@ -37,12 +37,15 @@ final class FaceButton: UIButton {
         guard let imageURL = URL(string: url) else {
             preconditionFailure("Invalid image link")
         }
-        URLSession.shared.dataTask(with: imageURL, completionHandler: { (data, response, error) -> Void in
-            let image = UIImage(data: data!)
-            DispatchQueue.main.async { () -> Void in
-                self.setBackgroundImage(image, for: .normal)
+        let task = URLSession.shared.dataTask(with: imageURL) { (data, response, error) -> Void in
+            if let data = data {
+                let image = UIImage(data: data)
+                DispatchQueue.main.async {
+                    self.setBackgroundImage(image, for: .normal)
+                }
             }
-        }).resume()
+        }
+        task.resume()
     }
 
     // MARK: - Label

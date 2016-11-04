@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+ Displays a collection of people's images to choose from, and the chosen person's name.
+ */
 final class NormalModeView: NameGameView {
     
     @IBOutlet private weak var questionLabel: UILabel!
@@ -24,17 +27,16 @@ final class NormalModeView: NameGameView {
     
     override func configure(people: [Person], chosenPerson: Person) {
         assert(people.count == faceButtons.count)
-        faceButtons.forEach {
-            $0.removeTint()
-            $0.hideName()
-            $0.isUserInteractionEnabled = true
-            $0.alpha = 1
-        }
-        faceButtons.enumerated().forEach({
+        faceButtons.enumerated().forEach {
+            $0.element.removeTint()
+            $0.element.hideName()
+            $0.element.isUserInteractionEnabled = true
+            $0.element.alpha = 1
+            
             let person = people[$0.offset]
             $0.element.setTitle(person.name, for: .normal)
             $0.element.loadImageFromURL(url: person.imageUrl)
-        })
+        }
         questionLabel.text = "Who is \(chosenPerson.name)"
     }
  

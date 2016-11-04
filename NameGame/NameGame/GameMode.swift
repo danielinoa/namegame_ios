@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+ This enum describes the different playable game modes.
+ */
 enum GameMode {
     
     case normal
@@ -22,7 +25,7 @@ enum GameMode {
         }
     }
     
-    var viewClass: UIView.Type {
+    var viewClass: NameGameView.Type {
         switch self {
             case .normal, .matt:
                 return NormalModeView.self

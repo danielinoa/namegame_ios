@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+ Displays a list of game modes.
+ */
 final class GameModesViewController: UITableViewController {
 
     private let modes = GameMode.all
@@ -42,7 +45,9 @@ final class GameModesViewController: UITableViewController {
     private func loadData() {
         Person.fetchPeople { people in
             DispatchQueue.main.async {
-                self.people = people
+                if let people = people {
+                    self.people = people
+                }
             }
         }
     }

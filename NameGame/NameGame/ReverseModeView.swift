@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+ Displays a collection of people's names to choose from, and the chosen person's image.
+ */
 final class ReverseModeView: NameGameView {
 
     @IBOutlet private weak var questionLabel: UILabel!
@@ -20,15 +23,14 @@ final class ReverseModeView: NameGameView {
     
     override func configure(people: [Person], chosenPerson: Person) {
         assert(people.count == faceButtons.count)
-        faceButtons.forEach {
-            $0.removeTint()
-            $0.isUserInteractionEnabled = true
-            $0.alpha = 1
-        }
-        faceButtons.enumerated().forEach({
+        faceButtons.enumerated().forEach {
+            $0.element.removeTint()
+            $0.element.isUserInteractionEnabled = true
+            $0.element.alpha = 1
+            
             let person = people[$0.offset]
             $0.element.setTitle(person.name, for: .normal)
-        })
+        }
         configureImage(person: chosenPerson)
     }
     
@@ -36,12 +38,16 @@ final class ReverseModeView: NameGameView {
         guard let imageURL = URL(string: person.imageUrl) else {
             preconditionFailure("Invalid image link")
         }
-        URLSession.shared.dataTask(with: imageURL, completionHandler: { (data, response, error) -> Void in
-            let image = UIImage(data: data!)
-            DispatchQueue.main.async { () -> Void in
-                self.chosenPersonImageView.image = image
+        
+        let task = URLSession.shared.dataTask(with: imageURL) { (data, response, error) -> Void in
+            if let data = data {
+                let image = UIImage(data: data)
+                DispatchQueue.main.async {
+                    self.chosenPersonImageView.image = image
+                }
             }
-        }).resume()
+        }
+        task.resume()
     }
 
 }
