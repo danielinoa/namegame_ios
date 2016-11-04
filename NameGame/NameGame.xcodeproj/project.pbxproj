@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		011369E01DCBF59B00DFA48A /* NormalModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011369DF1DCBF59B00DFA48A /* NormalModeView.swift */; };
 		011369E21DCC095600DFA48A /* NameGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011369E11DCC095600DFA48A /* NameGameView.swift */; };
+		011369E41DCC0D5D00DFA48A /* ReverseModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011369E31DCC0D5D00DFA48A /* ReverseModeView.swift */; };
 		0116A0B21DCBE5A500E5AE4A /* ReverseModeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0116A0B11DCBE5A500E5AE4A /* ReverseModeView.xib */; };
 		01228FDE1DCAAFDE00B1C174 /* Array+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01228FDD1DCAAFDE00B1C174 /* Array+Random.swift */; };
 		01228FE11DCAE3C400B1C174 /* GameModesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01228FE01DCAE3C400B1C174 /* GameModesViewController.swift */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		011369DF1DCBF59B00DFA48A /* NormalModeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NormalModeView.swift; sourceTree = "<group>"; };
 		011369E11DCC095600DFA48A /* NameGameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameGameView.swift; sourceTree = "<group>"; };
+		011369E31DCC0D5D00DFA48A /* ReverseModeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReverseModeView.swift; sourceTree = "<group>"; };
 		0116A0B11DCBE5A500E5AE4A /* ReverseModeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReverseModeView.xib; sourceTree = "<group>"; };
 		01228FDD1DCAAFDE00B1C174 /* Array+Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Random.swift"; sourceTree = "<group>"; };
 		01228FE01DCAE3C400B1C174 /* GameModesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModesViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				01228FE61DCAE6E900B1C174 /* NormalModeView.xib */,
 				011369DF1DCBF59B00DFA48A /* NormalModeView.swift */,
 				0116A0B11DCBE5A500E5AE4A /* ReverseModeView.xib */,
+				011369E31DCC0D5D00DFA48A /* ReverseModeView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				011369E41DCC0D5D00DFA48A /* ReverseModeView.swift in Sources */,
 				01228FE31DCAE3D700B1C174 /* GameMode.swift in Sources */,
 				EC6A1AB71C8F6E5A0071F529 /* AppDelegate.swift in Sources */,
 				01228FE11DCAE3C400B1C174 /* GameModesViewController.swift in Sources */,

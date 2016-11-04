@@ -17,10 +17,13 @@ final class NameGameViewController: UIViewController {
         return view as! NameGameView
     }
     
+    let mode: GameMode
+    
     // MARK: - Lifecycle
     
-    init(people: [Person]) {
+    init(people: [Person], mode: GameMode) {
         self.people = people
+        self.mode = mode
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -30,7 +33,7 @@ final class NameGameViewController: UIViewController {
     // MARK: - View Lifecycle
     
     override func loadView() {
-        let nameGameView = UINib(nibName: "NormalModeView", bundle: nil).instantiate(withOwner: self, options: nil).first as! NameGameView
+        let nameGameView = UINib(nibName: "\(mode.viewClass)", bundle: nil).instantiate(withOwner: self, options: nil).first as! NameGameView
         nameGameView.buttons.forEach { $0.addTarget(self, action: #selector(tapped(button:)), for: .touchUpInside) }
         view = nameGameView
     }
@@ -53,7 +56,7 @@ final class NameGameViewController: UIViewController {
         self.guesser = guesser
         
         // configure view
-        nameGameView.configure(people: samplePeople, question: "Who is \(guesser.chosenElement.name)?")
+        nameGameView.configure(people: samplePeople, chosenPerson: guesser.chosenElement)
     }
     
     // MARK: - Actions
@@ -74,7 +77,6 @@ final class NameGameViewController: UIViewController {
         guard let tappedButtonIndex = nameGameView.buttons.index(of: button), let guesser = guesser else {
             fatalError()
         }
-        button.animateDisplayName()
         button.isUserInteractionEnabled = false
         let tappedPerson = guesser.sample[tappedButtonIndex]
         if guesser.isChosenElement(element: tappedPerson) {

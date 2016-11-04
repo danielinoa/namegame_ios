@@ -68,20 +68,9 @@ final class GameModesViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let mode = modes[indexPath.row]
-        var viewController: UIViewController?
-        
-        switch mode {
-            case .normal:
-                viewController = NameGameViewController(people: people)
-            case .matt:
-                let matts = people.filter { $0.name.lowercased().hasPrefix("mat") }
-                viewController = NameGameViewController(people: matts)
-            default: break
-        }
-        
-        if let viewController = viewController {
-            show(viewController, sender: self)
-        }
+        let people = mode == .matt ? self.people.filter { $0.name.lowercased().hasPrefix("mat") } : self.people
+        let vc = NameGameViewController(people: people, mode: mode)
+        show(vc, sender: self)
     }
 
 }

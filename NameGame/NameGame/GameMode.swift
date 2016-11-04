@@ -6,7 +6,7 @@
 //  Copyright © 2016 WillowTree Apps. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum GameMode {
     
@@ -21,6 +21,16 @@ enum GameMode {
             case .matt: return "Mat(t)"
         }
     }
+    
+    var viewClass: UIView.Type {
+        switch self {
+            case .normal, .matt:
+                return NormalModeView.self
+            case .reverse:
+                return ReverseModeView.self
+        }
+    }
+    
     
     static var all: [GameMode] {
         return [.normal, .reverse, .matt]

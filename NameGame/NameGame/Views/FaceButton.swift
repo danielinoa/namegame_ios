@@ -31,11 +31,6 @@ final class FaceButton: UIButton {
         insertSubview(tintView, at: 0)
     }
     
-    func configure(with person: Person) {
-        loadImageFromURL(url: person.imageUrl)
-        setTitle(person.name, for: .normal)
-    }
-    
     // MARK: - Image
 
     func loadImageFromURL(url: String) {
@@ -53,14 +48,12 @@ final class FaceButton: UIButton {
     // MARK: - Label
     
     func animateDisplayName() {
-        setTitleColor(.white, for: .normal)
         UIView.animate(withDuration: 0.5) {
             self.titleLabel?.alpha = 1.0
         }
     }
 
     func hideName() {
-        setTitleColor(.clear, for: .normal)
         titleLabel?.alpha = 0.0
     }
     

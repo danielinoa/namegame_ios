@@ -17,7 +17,7 @@ class NameGameView: UIView {
         fatalError("No implementation for \(#function)")
     }
     
-    func configure(people: [Person], question: String) {
+    func configure(people: [Person], chosenPerson: Person) {
         fatalError("No implementation for \(#function)")
     }
     

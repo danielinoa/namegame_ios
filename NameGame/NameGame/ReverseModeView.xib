@@ -13,24 +13,46 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ReverseModeView" customModule="NameGame" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Om0-OL-xuD">
-                    <rect key="frame" x="93.5" y="125" width="187.5" height="187.5"/>
+                    <rect key="frame" x="93.5" y="124.5" width="187.5" height="187.5"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="Om0-OL-xuD" secondAttribute="height" multiplier="1:1" id="chp-qO-0ve"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guess The Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTK-6k-lVk">
-                    <rect key="frame" x="121" y="74" width="132" height="21"/>
+                    <rect key="frame" x="121.5" y="74" width="131.5" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="300" placeholderIntrinsicHeight="200" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0O1-wB-PMM">
-                    <rect key="frame" x="37" y="343" width="300" height="200"/>
+                <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="300" placeholderIntrinsicHeight="200" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0O1-wB-PMM">
+                    <rect key="frame" x="56" y="342.5" width="262.5" height="304.5"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z6R-qU-aWm" customClass="FaceButton" customModule="NameGame" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="262.5" height="57"/>
+                            <state key="normal" title="Button"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GTb-nJ-4Gc" customClass="FaceButton" customModule="NameGame" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="62" width="262.5" height="57"/>
+                            <state key="normal" title="Button"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CFS-Eg-Bn3" customClass="FaceButton" customModule="NameGame" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="124" width="262.5" height="56.5"/>
+                            <state key="normal" title="Button"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NGf-17-o0U" customClass="FaceButton" customModule="NameGame" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="185.5" width="262.5" height="57"/>
+                            <state key="normal" title="Button"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pLh-gv-PCp" customClass="FaceButton" customModule="NameGame" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="247.5" width="262.5" height="57"/>
+                            <state key="normal" title="Button"/>
+                        </button>
+                    </subviews>
                 </stackView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -40,10 +62,20 @@
                 <constraint firstItem="Om0-OL-xuD" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="1/2" id="5lp-8b-q2B"/>
                 <constraint firstItem="Om0-OL-xuD" firstAttribute="top" secondItem="PTK-6k-lVk" secondAttribute="bottom" constant="30" id="6pb-Eg-EfS"/>
                 <constraint firstItem="PTK-6k-lVk" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="7b5-Rh-V4e"/>
-                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="0O1-wB-PMM" secondAttribute="bottom" constant="20" id="UEf-tw-wRP"/>
+                <constraint firstAttribute="bottom" secondItem="0O1-wB-PMM" secondAttribute="bottom" constant="20" id="UEf-tw-wRP"/>
                 <constraint firstItem="Om0-OL-xuD" firstAttribute="centerX" secondItem="PTK-6k-lVk" secondAttribute="centerX" id="WIf-8e-0pY"/>
                 <constraint firstItem="0O1-wB-PMM" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="cYj-FJ-5Zl"/>
+                <constraint firstItem="0O1-wB-PMM" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.7" id="nO7-ap-buE"/>
             </constraints>
+            <connections>
+                <outlet property="chosenPersonImageView" destination="Om0-OL-xuD" id="GMk-pP-vdm"/>
+                <outlet property="questionLabel" destination="PTK-6k-lVk" id="IEP-rW-ir9"/>
+                <outletCollection property="faceButtons" destination="pLh-gv-PCp" collectionClass="NSMutableArray" id="eSd-2H-SCd"/>
+                <outletCollection property="faceButtons" destination="NGf-17-o0U" collectionClass="NSMutableArray" id="vWd-ol-VoP"/>
+                <outletCollection property="faceButtons" destination="CFS-Eg-Bn3" collectionClass="NSMutableArray" id="giE-De-2hJ"/>
+                <outletCollection property="faceButtons" destination="GTb-nJ-4Gc" collectionClass="NSMutableArray" id="x5h-X5-AZG"/>
+                <outletCollection property="faceButtons" destination="z6R-qU-aWm" collectionClass="NSMutableArray" id="1mC-PL-cTK"/>
+            </connections>
             <point key="canvasLocation" x="34.5" y="53.5"/>
         </view>
     </objects>
