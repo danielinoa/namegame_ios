@@ -13,21 +13,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NameGameViewController" customModule="NameGame" customModuleProvider="target">
             <connections>
-                <outlet property="innerStackView1" destination="h7R-8Y-28k" id="0Xj-rQ-TQJ"/>
-                <outlet property="innerStackView2" destination="kTu-4w-wZS" id="8CU-Aa-wxx"/>
-                <outlet property="outerStackView" destination="MBP-U2-3Uj" id="BtS-xN-9lK"/>
-                <outlet property="questionLabel" destination="Aa2-8x-49g" id="8qI-Pf-rOp"/>
                 <outlet property="view" destination="hCB-CZ-G8k" id="JMS-oL-1fH"/>
-                <outletCollection property="imageButtons" destination="mqg-87-vFS" collectionClass="NSMutableArray" id="wWx-Co-YHx"/>
-                <outletCollection property="imageButtons" destination="4w9-Rw-4kO" collectionClass="NSMutableArray" id="ygq-Cr-thD"/>
-                <outletCollection property="imageButtons" destination="dpU-fk-kVB" collectionClass="NSMutableArray" id="duL-pZ-Ovu"/>
-                <outletCollection property="imageButtons" destination="tUg-7o-D8S" collectionClass="NSMutableArray" id="Kl7-gH-CPr"/>
-                <outletCollection property="imageButtons" destination="rSA-iV-Lpu" collectionClass="NSMutableArray" id="2jw-wJ-IE7"/>
-                <outletCollection property="imageButtons" destination="6jF-2s-s4z" collectionClass="NSMutableArray" id="xyc-Kl-4Eh"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="hCB-CZ-G8k">
+        <view contentMode="scaleToFill" id="hCB-CZ-G8k" customClass="NormalModeView" customModule="NameGame" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -56,9 +46,6 @@
                                     <variation key="heightClass=regular-widthClass=regular">
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                     </variation>
-                                    <connections>
-                                        <action selector="faceTapped:" destination="-1" eventType="touchUpInside" id="PEl-Wb-MdW"/>
-                                    </connections>
                                 </button>
                                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpU-fk-kVB" customClass="FaceButton" customModule="NameGame" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="175" width="160" height="160"/>
@@ -73,9 +60,6 @@
                                     <variation key="heightClass=regular-widthClass=regular">
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                     </variation>
-                                    <connections>
-                                        <action selector="faceTapped:" destination="-1" eventType="touchUpInside" id="Fal-8A-4AE"/>
-                                    </connections>
                                 </button>
                                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rSA-iV-Lpu" customClass="FaceButton" customModule="NameGame" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="350" width="160" height="160"/>
@@ -90,9 +74,6 @@
                                     <variation key="heightClass=regular-widthClass=regular">
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                     </variation>
-                                    <connections>
-                                        <action selector="faceTapped:" destination="-1" eventType="touchUpInside" id="3hb-0f-tcV"/>
-                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -113,9 +94,6 @@
                                     <variation key="heightClass=regular-widthClass=regular">
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                     </variation>
-                                    <connections>
-                                        <action selector="faceTapped:" destination="-1" eventType="touchUpInside" id="POe-Rc-7my"/>
-                                    </connections>
                                 </button>
                                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tUg-7o-D8S" customClass="FaceButton" customModule="NameGame" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="175" width="160" height="160"/>
@@ -130,9 +108,6 @@
                                     <variation key="heightClass=regular-widthClass=regular">
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                     </variation>
-                                    <connections>
-                                        <action selector="faceTapped:" destination="-1" eventType="touchUpInside" id="Zv3-2M-Iu3"/>
-                                    </connections>
                                 </button>
                                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6jF-2s-s4z" customClass="FaceButton" customModule="NameGame" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="350" width="160" height="160"/>
@@ -147,9 +122,6 @@
                                     <variation key="heightClass=regular-widthClass=regular">
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                     </variation>
-                                    <connections>
-                                        <action selector="faceTapped:" destination="-1" eventType="touchUpInside" id="3Q2-6m-aQu"/>
-                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -167,6 +139,15 @@
                 <constraint firstItem="MBP-U2-3Uj" firstAttribute="leading" secondItem="hCB-CZ-G8k" secondAttribute="leadingMargin" constant="12" id="xVN-1R-4M3"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <connections>
+                <outlet property="questionLabel" destination="Aa2-8x-49g" id="gYL-Hk-yhL"/>
+                <outletCollection property="faceButtons" destination="rSA-iV-Lpu" collectionClass="NSMutableArray" id="aM8-5s-GWW"/>
+                <outletCollection property="faceButtons" destination="mqg-87-vFS" collectionClass="NSMutableArray" id="8LH-CW-vmh"/>
+                <outletCollection property="faceButtons" destination="dpU-fk-kVB" collectionClass="NSMutableArray" id="2aX-K7-GeX"/>
+                <outletCollection property="faceButtons" destination="4w9-Rw-4kO" collectionClass="NSMutableArray" id="Yak-Ul-nr9"/>
+                <outletCollection property="faceButtons" destination="tUg-7o-D8S" collectionClass="NSMutableArray" id="wtF-E1-lRC"/>
+                <outletCollection property="faceButtons" destination="6jF-2s-s4z" collectionClass="NSMutableArray" id="1e0-BY-QBg"/>
+            </connections>
         </view>
     </objects>
     <resources>
