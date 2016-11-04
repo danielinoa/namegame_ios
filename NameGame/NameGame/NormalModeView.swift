@@ -44,4 +44,10 @@ final class NormalModeView: NameGameView {
         button.animateDisplayName()
     }
     
+    // MARK: - NibLoadable
+    
+    override class var nibName: String {
+        return "NormalModeView"
+    }
+    
 }

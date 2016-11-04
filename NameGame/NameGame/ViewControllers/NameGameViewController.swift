@@ -36,9 +36,7 @@ final class NameGameViewController: UIViewController {
     // MARK: - View Lifecycle
     
     override func loadView() {
-        guard let nameGameView = UINib(nibName: "\(mode.viewClass)", bundle: nil).instantiate(withOwner: self, options: nil).first as? NameGameView else {
-            fatalError("Unable to load \(mode.viewClass) nib")
-        }
+        let nameGameView = mode.viewClass.loadFromNib() as! NameGameView
         nameGameView.buttons.forEach { $0.addTarget(self, action: #selector(tapped(button:)), for: .touchUpInside) }
         view = nameGameView
     }

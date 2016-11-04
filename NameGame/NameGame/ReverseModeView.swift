@@ -50,4 +50,10 @@ final class ReverseModeView: NameGameView {
         task.resume()
     }
 
+    // MARK: - NibLoadable
+    
+    override class var nibName: String {
+        return "ReverseModeView"
+    }
+    
 }
