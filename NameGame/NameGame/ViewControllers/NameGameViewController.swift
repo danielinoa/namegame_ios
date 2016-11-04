@@ -82,7 +82,7 @@ final class NameGameViewController: UIViewController {
         if guesser.isChosenElement(element: tappedPerson) {
             button.setTint(color: .green)
             // reconfigure game after correct guess
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                 self.configureGame(with: self.people)
             })
         } else {
